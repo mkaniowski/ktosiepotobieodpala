@@ -7,8 +7,9 @@ const crop = async () => {
         const height = 45
         const x = 200
         const y = 265
-        return new Promise((resolve, reject) => {
+        await new Promise((resolve, reject) => {
             sharp('./src/img/latest.jpg')
+                .resize(750, 1333)
                 .extract({ left: x, top: y + i * 180, width: width, height: height })
                 .toFile(`./src/img/nickname${i}.jpg`, (err: any, info: any) => {
                     if (err) {
@@ -29,8 +30,9 @@ const crop = async () => {
         const height = 60
         const x = 570
         const y = 280
-        return new Promise((resolve, reject) => {
+        await new Promise((resolve, reject) => {
             sharp('./src/img/latest.jpg')
+                .resize(750, 1333)
                 .extract({ left: x, top: y + j * 180, width: width, height: height })
                 .toFile(`./src/img/time${j}.jpg`, (err: any, info: any) => {
                     if (err) {

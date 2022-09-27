@@ -8,9 +8,9 @@ const getStory = async (url: string, path: string) => {
             url: url,
             responseType: 'stream'
         }).then((res: any) => {
-            console.log("Downloaded")
+            console.log("Downloaded!")
             res.data.pipe(fs.createWriteStream(path))
-                .on('finish', () => { console.log("Finished"); resolve(res) })
+                .on('finish', () => { console.log("Finished saving."); resolve(res) })
                 .on('error', (e: any) => { console.log("Error while downloading!"); reject(e) })
         }).catch((err: any) => { console.log("getStroy err", err) })
     })
