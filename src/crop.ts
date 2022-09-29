@@ -4,7 +4,7 @@ const crop = async () => {
     console.log("Cropping nicknames...")
     for (let i = 0; i < 3; i++) {
         const width = 350
-        const height = 45
+        const height = 50
         const x = 200
         const y = 265
         await new Promise((resolve, reject) => {

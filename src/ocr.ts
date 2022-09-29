@@ -7,9 +7,15 @@ const ocr = async () => {
     for (let i = 0; i < 3; i++) {
         await Tesseract.recognize(
             `./src/img/nickname${i}.jpg`,
-            'pol',
+            'eng', // eng works better than pol
         ).then(({ data: { text } }) => {
-            nicks.push(text.replace('\n', ''))
+            let temp = text.replace('\n', '')
+            if (temp === 'MtODY') { // becuse of eng ocr can't read polish signs
+                nicks.push('MŁODY')
+            } else {
+                nicks.push(text.replace('\n', ''))
+            }
+            console.log(text.replace('\n', ''))
         })
     }
     console.log(`Recognized ${nicks.length} nicknames`)
