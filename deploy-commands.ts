@@ -6,7 +6,6 @@ import path from 'node:path';
 
 const token = process.env.DC_TOKEN ?? ''
 const clientID = process.env.DC_CLIENT_ID ?? ''
-// const guildID = process.env.GUILD_ID ?? ''
 
 const commands = new Array
 const commandsPath = path.join(__dirname, 'commands');
